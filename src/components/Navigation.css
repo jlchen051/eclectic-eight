@@ -1,0 +1,12 @@
+.left-adjustment,
+.right-adjustment{
+    padding: 15px;
+}
+
+.logo{
+    max-width: 125px;
+}
+
+.nav-item:hover{
+    font-weight: bold;
+}

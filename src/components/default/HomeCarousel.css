@@ -1,0 +1,16 @@
+.carousel{
+    background: #f5f5f5;
+}
+
+.carousel-caption{
+    font-size: x-large;
+}
+
+.caption-text{
+    text-shadow: 1px 1px 2px #0B586E;
+}
+
+.d-block{
+    max-height: 800px;
+    opacity: 0.8;
+}

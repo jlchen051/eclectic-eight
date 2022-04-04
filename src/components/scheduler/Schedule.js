@@ -87,7 +87,7 @@ function Schedule() {
                             <p className="completion-description-continued">
                                 Your mentee will be notified of your chosen meeting availabilities by email.
                             </p>
-                            <Button className="homepage-button" href="/home-page">
+                            <Button className="homepage-button" href="/home">
                                 Back to Home
                             </Button>
                         </div>

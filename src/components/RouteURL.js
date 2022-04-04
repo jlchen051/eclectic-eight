@@ -10,26 +10,17 @@ import Schedule from './scheduler/Schedule';
 import SignIn from './login/Sign-in';
 import Register from './registration/Register';
 import RegisterationSuccess from './registration/RegistrationSuccess';
-import Homepage from './Homepage';
 
-let userToken = null;
-
-function RouteURL(){
-    const CurrUser = id =>{
-        userToken = id;
-    };
-
-    console.log(userToken);
-
+function RouteURL(){   
     return(
         <Routes>
             <Route exact path="/" element={<Home />} /> 
-            <Route exact path="/logged-in" element={<Homepage />} /> 
+            <Route exact path="/home" element={<Homepage />} /> 
             <Route path="/profile" element={<Profile />} />
             <Route path="/testimony" element={<Testimony />} />
             <Route path="/game" element={<Game />} />
             <Route path="/schedule" element={<Schedule />} />
-            <Route path="/sign-in" element={<SignIn userId={CurrUser} />} />
+            <Route path="/sign-in" element={<SignIn />} />
             <Route path="/register" element={<Register />} />
             <Route path="/register-success" element={<RegisterationSuccess />} />
             <Route path="*" element={<Navigate to="/" replace />} />

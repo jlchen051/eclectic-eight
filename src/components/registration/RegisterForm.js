@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import axios from 'axios'
+import axios from 'axios';
 
 import './RegisterForm.css';
 import {Form, Row, Col, InputGroup, Button} from 'react-bootstrap';
@@ -46,15 +46,15 @@ function RegisterForm() {
         axios
         .get('http://localhost:4001/users/all')
         .then(response => {
-            console.log(response.data)
+            console.log(response.data);
             var userExists = false;
             response.data.map((user) => {
                 if(user.email == formDataObj.email) {
-                    console.log("User already exists")
-                    setError(true)
+                    console.log("User already exists");
+                    setError(true);
                     userExists = true;
                 }
-            })
+            });
             if(!userExists) {
                 axios
                     .post('http://localhost:4001/users/create', {
@@ -72,12 +72,10 @@ function RegisterForm() {
                         navigate('/register-success');
                     }
                     })
-                    .catch(error => console.error(`There was an error creating the user: ${error}`))
+                    .catch(error => console.error(`There was an error creating the user: ${error}`));
             }
         })
-        .catch(error => console.error(`There was an error retrieving the book list: ${error}`))
-        
-        
+        .catch(error => console.error(`There was an error retrieving the book list: ${error}`));
     };
 
     return(
@@ -181,7 +179,7 @@ function RegisterForm() {
                             <Form.Check 
                                 className="mb-2"
                                 required
-                                label={<label>I confirm that I have read, consent and agree to Tech Alpharetta's <a className="agreement-button" href='https://en.wikipedia.org/wiki/End-user_license_agreement' rel="noreferrer" target="_blank">User Agreement</a> and <a className="policy-button" href='https://en.wikipedia.org/wiki/Privacy_policy' rel="noreferrer" target="_blank">Privacy Policy</a>, and I am of legal age.</label>}
+                                label={<label>I confirm that I have read, consent and agree to Tech Alpharetta's <a className="agreement-button" href='https://en.wikipedia.org/wiki/End-user_license_agreement' rel="noopener noreferrer" target="_blank">User Agreement</a> and <a className="policy-button" href='https://en.wikipedia.org/wiki/Privacy_policy' rel="noopener noreferrer" target="_blank">Privacy Policy</a>, and I am of legal age.</label>}
                                 feedback="You must agree before submitting."
                                 feedbackType="invalid"
                             />
@@ -191,7 +189,7 @@ function RegisterForm() {
                         <Form.Group as={Col} md="12">
                             <Button className="submit-button mb-2" type="submit" 
                             >Sign Up</Button>
-                            <div style={{display: error ? "block" : "none"}} className="error">User already exists</div>
+                            <div style={{display: error ? "block" : "none"}} className="error">User already exists.</div>
                         </Form.Group>
                     </Row>
                 </Form>

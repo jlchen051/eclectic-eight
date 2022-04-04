@@ -9,8 +9,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [token, setToken] = useState();
-
   return (
     <>  
       <div className="app-container d-flex flex-column justify-content-between flex-nowrap">

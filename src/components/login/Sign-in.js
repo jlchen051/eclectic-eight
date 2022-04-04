@@ -1,19 +1,27 @@
-import React, {useState} from 'react';
-import axios from 'axios'
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 
 import SignInForm from './SignInForm';
 
-function SignIn({CurrUser}) {
-    const adminUser = {
-        email: "admin@admin.com",
-        password: "admin123"
-    }
+function SignIn() {
+    // const adminUser = {
+    //     email: "admin@admin.com",
+    //     password: "admin123"
+    // }
 
     const [user, setUser] = useState({email: ""});
     const [error, setError] = useState("");
     const [loginSuccessful, setLoginSuccessful] = useState(false);
 
-    const Login = details =>{
+    useEffect(() => {
+        if(loginSuccessful) {
+            window.sessionStorage.setItem('user', 1);
+            console.log({user});
+            console.log("Login Success");
+        }
+    });
+
+    const Login = details => {
         console.log(details);
 
         axios
@@ -23,29 +31,29 @@ function SignIn({CurrUser}) {
             response.data.map((user) => {
                 if(user.email == details.email) {
                     if(details.password === user.password) {
-                        setError("")
+                        setError("");
                         // login successful
                         setUser({
                             email: details.email
                         });
                         // CurrUser(user);
-                        setLoginSuccessful(true)
+                        setLoginSuccessful(true);
                         
                     }
                     else {
                         // wrong password
-                        setLoginSuccessful(false)
-                        setError("Incorrect password")
+                        setLoginSuccessful(false);
+                        setError("Incorrect password");
                     }
                 }
                 else {
                     // email does not exist
-                    setLoginSuccessful(false)
-                    setError("Email does not exist")
+                    setLoginSuccessful(false);
+                    setError("Email does not exist");
                 }
             })
         })
-        .catch(error => console.error(`There was an error retrieving the book list: ${error}`))
+        .catch(error => console.error(`There was an error retrieving the book list: ${error}`));
 
         // if(details.email === adminUser.email && details.password === adminUser.password){
         //     console.log("Logged in");
@@ -57,13 +65,6 @@ function SignIn({CurrUser}) {
         // }else{
         //     console.log("Details do not match");
         // }
-    }
-
-    const Logout = () => {
-        console.log("Logout");
-        setUser({
-                email: ""
-        });
     }
 
     return(

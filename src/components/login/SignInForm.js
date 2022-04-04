@@ -12,21 +12,19 @@ function SignInForm({Login, error, loginSuccessful}) {
 
     useEffect(() => {
         // Get existing profile info from API
-        console.log("details", details)
+        console.log("details", details);
         Login(details);
-        console.log("loginSuccessful", loginSuccessful)
+        console.log("loginSuccessful", loginSuccessful);
         
     }, [details]);
 
     useEffect(() => {
         if(loginSuccessful){
-            console.log("here")
-            navigate('/logged-in');
+            console.log("here");
+            navigate('/home');
         }
     }, [loginSuccessful]);
 
-
-    
     const onFormSubmit = e => {
         e.preventDefault();
 
@@ -40,7 +38,6 @@ function SignInForm({Login, error, loginSuccessful}) {
         const formData = new FormData(e.target),
         formDataObj = Object.fromEntries(formData.entries());
         setDetails(formDataObj);
-        
     }
 
     return(
@@ -80,8 +77,12 @@ function SignInForm({Login, error, loginSuccessful}) {
                     <Button className="submit-button w-100" variant="primary" type="submit">
                         Log In
                     </Button>
-                    <div style={{display: error == "Email does not exist" ? "block" : "none"}} className="error">Email does not exist</div>
-                    <div style={{display: error == "Incorrect password" ? "block" : "none"}} className="error">Incorrect password</div>
+                    <div style={{display: error == "Email does not exist" ? "block" : "none"}} className="error">
+                        Email does not exist.
+                    </div>
+                    <div style={{display: error == "Incorrect password" ? "block" : "none"}} className="error">
+                        Incorrect password.
+                    </div>
                 </Form>
             </div>
         </>

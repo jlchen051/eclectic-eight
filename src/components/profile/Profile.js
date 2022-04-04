@@ -5,6 +5,8 @@ import {Button} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import consistentCritter from '../images/consistent-critter.png'
+import meetingMaster from '../images/meeting-master.png'
 
 const Homepage = () => {
     const [save, setSave] = useState(false);
@@ -228,6 +230,19 @@ const Homepage = () => {
                                 })
                                 }
                             </select>
+                        </div>
+                        <div className="info">
+                            <div className="label">Badges Earned: </div>
+                            <div className="wrapper">
+                                <img src={consistentCritter} />
+                                <div className="text">Kudos to you for logging onto platform for 3 consecutive days!</div>
+                            </div>
+                            <div className="wrapper">
+                                <img src={meetingMaster} />
+                                <div className="text">Kudos to you for scheduling 3+ meetings with your mentor!</div>
+                            </div>
+                            
+                        
                         </div>
                         <Button type="submit" onClick={() => setSave(true)}>
                             Save

@@ -11,7 +11,7 @@ function Schedule() {
     const [dates, setDates] = useState([]);
 
     const [showCalendar, setShowCalendar] = useState(true);
-    const [checkDates, setCheckDates] = useState(dates.length);
+    const [checkDates, setCheckDates] = useState(0);
 
     const [showTimes, setShowTimes] = useState(false);
     const [timeOne, setTimeOne] = useState(['5:00', '9:00']);
@@ -24,22 +24,23 @@ function Schedule() {
     const [showComplete, setShowComplete] = useState(false); 
 
     useEffect(() => {
-        
-        console.log(checkDates);
+        if(checkDates > 0){
+            setShowNext(true);
+        }
     }, [checkDates]);
+
+    useEffect(() => {
+        console.log("dates", dates);
+        setCheckDates(dates.length);
+    }, [dates]);
 
     const clicked = (e) => {
         setDates(e);
-        setCheckDates(dates.length);
-
-        if(checkDates > -1){
-            setShowNext(true);
-        }
     };
 
     const reset = () => {
         setDates([]);
-        setCheckDates(dates.length);
+        setCheckDates(0);
         setShowNext(false);
     };
 
@@ -111,9 +112,7 @@ function Schedule() {
                                     
                                     return props;
                             }}
-
                             sort
-
                             disabled={dates.length >= 3}
                         >
                             <Button className="reset-button"
@@ -127,28 +126,28 @@ function Schedule() {
 
                 {showTimes ?
                     <div className="time-select-element d-flex flex-column align-items-center">
-                        {checkDates > -1 ?
+                        {checkDates > 0 ?
                             <h2 className="time-one-heading">
                                 {dates[0].monthIndex}/{dates[0].day}/{dates[0].year}
                             </h2>
                         : null}
-                        {checkDates > -1 ? 
+                        {checkDates > 0 ? 
                             <TimeRangePicker onChange={setTimeOne} value={timeOne} disableClock={true} />
                         : null}
-                        {checkDates > 0 ?
+                        {checkDates > 1 ?
                             <h2 className="time-two-heading">
                                 {dates[1].monthIndex}/{dates[1].day}/{dates[1].year}
                             </h2>
                         : null}
-                        {checkDates > 0 ? 
+                        {checkDates > 1 ? 
                             <TimeRangePicker onChange={setTimeTwo} value={timeTwo} disableClock={true} />
                         : null}
-                        {checkDates > 1 ?
+                        {checkDates > 2 ?
                             <h2 className="time-one-heading">
                                 {dates[2].monthIndex}/{dates[2].day}/{dates[2].year}
                             </h2>
                         : null}
-                        {checkDates > 1 ? 
+                        {checkDates > 2 ? 
                             <TimeRangePicker onChange={setTimeThree} value={timeThree} disableClock={true} />
                         : null}
                     </div> 
@@ -180,7 +179,9 @@ function Schedule() {
                     {showFinish ?
                         <Button className="finish-button"
                             onClick={() => complete()}
+                            disabled={!timeOne || (checkDates == 2 && !timeTwo)}
                         >
+                            {console.log("showFinish", showFinish, timeOne, timeTwo, timeThree)}
                             Finish
                         </Button> 
                     : null}

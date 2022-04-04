@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ga from './assets/ga.jpg'
+import ga from './images/ga.jpg'
 import './Homepage.scss';
 
 const Homepage = (isMentor) => {
@@ -32,7 +32,7 @@ const Homepage = (isMentor) => {
 
     return (
         <div className="img-overlay">
-            <img src={ga} />
+            <img src={ga} alt="background"/>
             <div className="overlay">
             <div className="mentor">Welcome, Vicky!</div>
             <div className="mentor">You've been Paired with: Vicky Yu</div>

@@ -14,7 +14,7 @@ function Navigation(){
             <div className="right-adjustment"></div>
             <Navbar.Collapse>
                 <Nav className="order-lg-0 text-center me-auto">
-                    <Nav.Link className="nav-item" href="/">
+                    <Nav.Link className="nav-item" href="/home-page">
                         Home
                     </Nav.Link>
                     <Nav.Link className="nav-item" href="/profile">

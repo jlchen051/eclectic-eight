@@ -17,6 +17,10 @@
     color: #18C09F;
 }
 
+.error {
+    color: red;
+}
+
 .margin-bottom{
     margin-bottom: 15px;
 }

@@ -16,6 +16,7 @@ const initialState = {
 
 function RegisterForm() {
     const [validated, setValidated] = useState(false);
+    const [error, setError] = useState(false);
     
     const navigate = useNavigate();
 
@@ -40,25 +41,43 @@ function RegisterForm() {
         console.log(formDataObj);
         console.log(form.checkValidity());
         console.log(state);
-
-        if(form.checkValidity() === true){
-            navigate('/register-success');
-        }
+        
         // Send POST request to 'users/create' endpoint
         axios
-        .post('http://localhost:4001/users/create', {
-            fname: formDataObj.firstName,
-            lname: formDataObj.lastName,
-            username: formDataObj.username,
-            email: formDataObj.email,
-            organization: formDataObj.organization,
-            password: formDataObj.passwordInput,
-            // mentor: formDataObj.mentor
+        .get('http://localhost:4001/users/all')
+        .then(response => {
+            console.log(response.data)
+            var userExists = false;
+            response.data.map((user) => {
+                if(user.email == formDataObj.email) {
+                    console.log("User already exists")
+                    setError(true)
+                    userExists = true;
+                }
+            })
+            if(!userExists) {
+                axios
+                    .post('http://localhost:4001/users/create', {
+                        fname: formDataObj.firstName,
+                        lname: formDataObj.lastName,
+                        username: formDataObj.username,
+                        email: formDataObj.email,
+                        organization: formDataObj.organization,
+                        password: formDataObj.passwordInput,
+                        // mentor: formDataObj.mentor
+                    })
+                    .then(res => {
+                    console.log(res.data)
+                    if(form.checkValidity() === true){
+                        navigate('/register-success');
+                    }
+                    })
+                    .catch(error => console.error(`There was an error creating the user: ${error}`))
+            }
         })
-        .then(res => {
-        console.log(res.data)
-        })
-        .catch(error => console.error(`There was an error creating the user: ${error}`))
+        .catch(error => console.error(`There was an error retrieving the book list: ${error}`))
+        
+        
     };
 
     return(
@@ -169,6 +188,7 @@ function RegisterForm() {
                         <Form.Group as={Col} md="12">
                             <Button className="submit-button mb-2" type="submit" 
                             >Sign Up</Button>
+                            <div style={{display: error ? "block" : "none"}} className="error">User already exists</div>
                         </Form.Group>
                     </Row>
                 </Form>

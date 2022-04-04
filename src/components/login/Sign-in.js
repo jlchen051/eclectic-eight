@@ -11,6 +11,7 @@ function SignIn({CurrUser}) {
 
     const [user, setUser] = useState({email: ""});
     const [error, setError] = useState("");
+    const [loginSuccessful, setLoginSuccessful] = useState(false);
 
     const Login = details =>{
         console.log(details);
@@ -22,18 +23,25 @@ function SignIn({CurrUser}) {
             response.data.map((user) => {
                 if(user.email == details.email) {
                     if(details.password === user.password) {
+                        setError("")
                         // login successful
                         setUser({
                             email: details.email
                         });
-                        CurrUser(user);
+                        // CurrUser(user);
+                        setLoginSuccessful(true)
+                        
                     }
                     else {
                         // wrong password
+                        setLoginSuccessful(false)
+                        setError("Incorrect password")
                     }
                 }
                 else {
                     // email does not exist
+                    setLoginSuccessful(false)
+                    setError("Email does not exist")
                 }
             })
         })
@@ -61,7 +69,7 @@ function SignIn({CurrUser}) {
     return(
         <>
             <div className="sign-in-container">
-                <SignInForm Login={Login} error={error} />
+                <SignInForm Login={Login} error={error} loginSuccessful={loginSuccessful}/>
             </div>
         </>
     );

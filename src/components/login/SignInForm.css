@@ -16,3 +16,7 @@
     color: #18C09F;
     text-decoration: underline;
 }
+
+.error {
+    color: red;
+}

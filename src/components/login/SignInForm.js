@@ -1,15 +1,32 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 
 import './SignInForm.css'
 import {Form, Button} from 'react-bootstrap';
 
-function SignInForm({Login, error}) {
+function SignInForm({Login, error, loginSuccessful}) {
     const [validated, setValidated] = useState(false);
     const [details, setDetails] = useState({email: "", password: ""});
 
     const navigate = useNavigate();
 
+    useEffect(() => {
+        // Get existing profile info from API
+        console.log("details", details)
+        Login(details);
+        console.log("loginSuccessful", loginSuccessful)
+        
+    }, [details]);
+
+    useEffect(() => {
+        if(loginSuccessful){
+            console.log("here")
+            navigate('/logged-in');
+        }
+    }, [loginSuccessful]);
+
+
+    
     const onFormSubmit = e => {
         e.preventDefault();
 
@@ -21,19 +38,9 @@ function SignInForm({Login, error}) {
         setValidated(true);
         
         const formData = new FormData(e.target),
-                formDataObj = Object.fromEntries(formData.entries());
-        
+        formDataObj = Object.fromEntries(formData.entries());
         setDetails(formDataObj);
-        Login(details);
         
-        console.log(form.checkValidity());
-        console.log(details);
-
-        if(form.checkValidity() === true){
-            setDetails(formDataObj)
-            Login(details);
-            navigate('/');
-        }
     }
 
     return(
@@ -73,6 +80,8 @@ function SignInForm({Login, error}) {
                     <Button className="submit-button w-100" variant="primary" type="submit">
                         Log In
                     </Button>
+                    <div style={{display: error == "Email does not exist" ? "block" : "none"}} className="error">Email does not exist</div>
+                    <div style={{display: error == "Incorrect password" ? "block" : "none"}} className="error">Incorrect password</div>
                 </Form>
             </div>
         </>

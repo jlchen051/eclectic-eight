@@ -1,0 +1,42 @@
+.profile {
+    border: 3px solid black;
+    padding: 10px;
+    background-color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    .header {
+        text-align: center;
+    }
+}
+.info {
+    display: flex;
+    margin-bottom: 20px;
+    button {
+        height: fit-content;
+    }
+    .label {
+        margin-right: 5px;
+    }
+}
+.selected-options {
+    display: flex;
+    flex-direction: row;
+    .remove-option {
+        display: flex;
+        flex-direction: row;
+        border: 1px solid black;
+        border-radius: 20px;
+        padding: 5px 10px 5px 10px;
+        margin-right: 10px;
+    }
+}
+
+.editInfo {
+    display: flex;
+}
+
+svg {
+    margin-left: 5px;
+}

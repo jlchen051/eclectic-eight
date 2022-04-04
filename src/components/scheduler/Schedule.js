@@ -24,8 +24,6 @@ function Schedule() {
     const [showComplete, setShowComplete] = useState(false); 
 
     useEffect(() => {
-        
-        console.log("checkDates", checkDates);
         if(checkDates > 0){
             setShowNext(true);
         }
@@ -37,11 +35,7 @@ function Schedule() {
     }, [dates]);
 
     const clicked = (e) => {
-        console.log("e", e)
         setDates(e);
-        
-        console.log(checkDates, dates.length);
-        
     };
 
     const reset = () => {

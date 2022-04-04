@@ -40,3 +40,20 @@
 svg {
     margin-left: 5px;
 }
+img {
+    width: 200px;
+}
+
+.wrapper {
+    .text {
+        visibility:hidden;
+    }
+}
+
+.wrapper:hover  {
+    .text{
+        visibility:visible;
+    }
+
+}
+    

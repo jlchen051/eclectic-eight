@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ga from './assets/ga.jpg'
+import ga from './default/images/ga.jpg'
 import './Homepage.scss';
 
 const Homepage = (isMentor) => {

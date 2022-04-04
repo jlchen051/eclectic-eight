@@ -9,6 +9,7 @@ import Schedule from './Schedule';
 import SignIn from './login/Sign-in';
 import Register from './registration/Register';
 import RegisterationSuccess from './registration/RegistrationSuccess';
+import Homepage from './Homepage';
 
 let userToken = null;
 
@@ -21,7 +22,7 @@ function RouteURL(){
 
     return(
         <Routes>
-            <Route exact path="/" element={<Home />} /> 
+            <Route exact path="/" element={<Homepage />} /> 
             <Route path="/profile" element={<Profile />} />
             <Route path="/testimony" element={<Testimony />} />
             <Route path="/game" element={<Game />} />

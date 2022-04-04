@@ -13,12 +13,16 @@ function Navigation(){
     if(token == regUser || token == admin){
         console.log("Logged In");
     }
+    else {
+        window.sessionStorage.setItem('user', 0);
+        console.log("logout");
+    }
 
     const Logout = () => {
         console.log("Logout");
-        if(token == regUser || token == admin){
-            window.sessionStorage.setItem('user', 0);
-        }
+        // if(token == regUser || token == admin){
+        //     window.sessionStorage.setItem('user', 0);
+        // }
     }
 
     return(

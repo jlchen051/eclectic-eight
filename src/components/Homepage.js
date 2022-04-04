@@ -38,7 +38,7 @@ const Homepage = (isMentor) => {
         <div className="img-overlay d-flex justify-content-center align-self-top">
             <img src={ga} alt="background"/>
             <div className="overlay">
-                <div className="mentor">Welcome, Vicky!</div>
+                <div className="mentor">Welcome, {window.sessionStorage.getItem('username')}!</div>
                 <div className="mentor">
                     You've been Paired with: Vicky Yu
                 </div>

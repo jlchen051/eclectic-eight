@@ -10,12 +10,16 @@ function SignIn() {
     // }
 
     const [user, setUser] = useState({email: ""});
+    const [username, setUsername] = useState("");
+    const [lastname, setLastName] = useState("");
     const [error, setError] = useState("");
     const [loginSuccessful, setLoginSuccessful] = useState(false);
 
     useEffect(() => {
         if(loginSuccessful) {
             window.sessionStorage.setItem('user', 1);
+            window.sessionStorage.setItem('username', username);
+            window.sessionStorage.setItem('lastname', lastname);
             console.log({user});
             console.log("Login Success");
         }
@@ -36,6 +40,8 @@ function SignIn() {
                         setUser({
                             email: details.email
                         });
+                        setUsername(user.fname);
+                        setLastName(user.lname);
                         // CurrUser(user);
                         setLoginSuccessful(true);
                         

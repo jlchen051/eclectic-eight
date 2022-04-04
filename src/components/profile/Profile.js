@@ -9,7 +9,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons'
 const Homepage = () => {
     const [save, setSave] = useState(false);
 
-    const pronounList = ["She/Her", "He/Him", "They/Them", "Other"]
+    const pronounList = ["", "She/Her", "He/Him", "They/Them", "Other"]
     const [pronouns, setPronouns] = useState("null");
     const [school, setSchool] = useState("null");
     const [savedSchool, setSavedSchool] = useState("null");
@@ -111,7 +111,7 @@ const Homepage = () => {
                 :
                     <div className="profile-edit d-flex flex-column">
                         <div className="profile-name text-center">
-                            Name: Vicky
+                            Name: { window.sessionStorage.getItem('username')  + " " + window.sessionStorage.getItem('lastname')}
                         </div>
                         <div className="info">
                             <div className="label">Pronouns: </div>

@@ -1,0 +1,23 @@
+.img-overlay {
+
+    img {
+        width: 100%;
+        position: relative;
+        height: 400px;
+        object-fit: cover;
+    }
+    .overlay {
+        position: absolute;
+        right: 15px;
+        font-weight: bold;
+        text-align: right;
+        font-size: 30px;
+    }
+    .btn {
+        background-color: black;
+        border: none;
+        color: white;
+        border-radius: 3px;
+        padding: 10px;
+    }
+}

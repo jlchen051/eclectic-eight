@@ -29,8 +29,8 @@ const Homepage = () => {
     // });
     useEffect(() => {
         // Get existing profile info from API
-        console.log("editSchool", editSchool)
-        console.log("school", school)
+        console.log("editSchool", editSchool);
+        console.log("school", school);
     }, [editSchool]);
     useEffect(() => {
         // Get existing profile info from API
@@ -39,7 +39,7 @@ const Homepage = () => {
 
     const saveSchool = () => {
         setEditSchool(false);
-        setSavedSchool(school)
+        setSavedSchool(school);
     }
 
     const cancelSchool = () => {
@@ -48,28 +48,28 @@ const Homepage = () => {
     }
     const addSkill = (option, array) => {
         console.log("option", option)
-        console.log("array", array, array.find(element => element == option))
-        if(array.find(element => element == option)) {
+        console.log("array", array, array.find(element => element === option))
+        if(array.find(element => element === option)) {
 
             var index = array.indexOf(option);
             if (index !== -1) {
                 var copyArray = [...array]; // make a separate copy of the array
                 copyArray.splice(index, 1);
                 console.log("softSkills now", copyArray)
-                if(array == softSkills) {
+                if(array === softSkills) {
                     setSoftSkills(copyArray)
                 }
-                else if(array == technicalInterests) {
+                else if(array === technicalInterests) {
                     setTechnicalInterests(copyArray)
                 }
                 
             }
         }
         else {
-            if(array == softSkills) {
+            if(array === softSkills) {
                 setSoftSkills([...softSkills, option])
             }
-            else if(array == technicalInterests) {
+            else if(array === technicalInterests) {
                 setTechnicalInterests([...technicalInterests, option])
             }
         }
@@ -82,10 +82,10 @@ const Homepage = () => {
                 var copyArray = [...array]; // make a separate copy of the array
                 copyArray.splice(index, 1);
                 console.log("softSkills now", copyArray)
-                if(array == softSkills) {
+                if(array === softSkills) {
                     setSoftSkills(copyArray)
                 }
-                else if(array == technicalInterests) {
+                else if(array === technicalInterests) {
                     setTechnicalInterests(copyArray)
                 }
                 
@@ -114,7 +114,7 @@ const Homepage = () => {
                     <button onClick={() => cancelSchool()}>Cancel</button>
                     <button onClick={() => saveSchool()}>Save</button>
                 </div>
-                 : 
+                : 
                 <div className="editInfo">
                     <div>{savedSchool}</div>
                     <button onClick={ () => setEditSchool(true)}>Edit</button>
@@ -129,7 +129,7 @@ const Homepage = () => {
                             return (
                                 <div onClick={() => addSkill(option, softSkills)}> 
                                     {option}
-                                    {softSkills.find(element => element == option) ? <FontAwesomeIcon icon={faCheck} /> : null }
+                                    {softSkills.find(element => element === option) ? <FontAwesomeIcon icon={faCheck} /> : null }
                                 </div>
                             )
                         })
@@ -159,7 +159,7 @@ const Homepage = () => {
                             return (
                                 <div onClick={() => addSkill(option, technicalInterests)}> 
                                     {option}
-                                    {technicalInterests.find(element => element == option) ? <FontAwesomeIcon icon={faCheck} /> : null }
+                                    {technicalInterests.find(element => element === option) ? <FontAwesomeIcon icon={faCheck} /> : null }
                                 </div>
                             )
                         })

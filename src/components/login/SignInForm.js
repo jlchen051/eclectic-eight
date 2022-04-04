@@ -46,7 +46,7 @@ function SignInForm({Login, error, loginSuccessful}) {
     return(
         <>
             <div className="signin-page-container d-flex justify-content-center align-items-center flex-wrap">
-                <Form className="sign-in-form mx-auto text-light"  noValidate validated={validated} onSubmit={onFormSubmit}>
+                <Form className="sign-in-form mx-auto text-light" noValidate validated={validated} onSubmit={onFormSubmit}>
                     <Form.Text className="sign-in-description text-info">
                         <h1 className="sign-in-header text-center">Welcome Back!</h1>
                         <p className="sign-in-message text-primary">

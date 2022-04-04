@@ -2,10 +2,11 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Home from './default/Home';
-import Profile from './Profile';
+import Homepage from './Homepage';
+import Profile from './profile/Profile';
 import Testimony from './Testimony';
 import Game from './Game';
-import Schedule from './Schedule';
+import Schedule from './scheduler/Schedule';
 import SignIn from './login/Sign-in';
 import Register from './registration/Register';
 import RegisterationSuccess from './registration/RegistrationSuccess';

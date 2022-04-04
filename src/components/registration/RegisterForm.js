@@ -160,7 +160,7 @@ function RegisterForm() {
                         </Form.Group>
                     </Row>
                     <Row className="mb-3">
-                        <Form.Group as={Col} md="6" controlId="validationCustomPassword">
+                        <Form.Group className="margin-bottom" as={Col} md="6" controlId="validationCustomPassword">
                             <Form.Control 
                                 required
                                 type="password" 
@@ -171,6 +171,9 @@ function RegisterForm() {
                             <Form.Control.Feedback type="invalid">
                                 Please provide a password.
                             </Form.Control.Feedback>
+                        </Form.Group>
+                        <Form.Group as={Col} md="6">
+                            <Form.Check type="checkbox" label="Signing up as a Mentor" />
                         </Form.Group>
                     </Row>
                     <Row className="mb-3">

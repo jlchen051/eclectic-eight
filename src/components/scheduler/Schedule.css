@@ -1,0 +1,27 @@
+.calendar-wrapper{
+    border-radius: 30px;
+    border: 2px solid black;
+    padding: 40px;
+    max-width: 400px;
+    box-shadow: 0 0 5rem rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.4);
+    text-shadow: 0px 1px 1px #333;
+    color: #333;
+}
+
+.homepage-button{
+    margin-top: 25px;
+}
+
+.time-select-element{
+    font-weight: bold;
+    text-shadow: none;
+}
+
+.reset-button{
+    margin-bottom: 10px;
+}
+
+.button-element{
+    margin-top: 30px;
+}

@@ -36,6 +36,7 @@
     "sqlite3": "4.1.1",
     "typescript": "3.8.3"
   },
+  "prox": "http://localhost:4001",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

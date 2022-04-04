@@ -7,12 +7,12 @@ const usersRoutes = require('./../controllers/users-controller.js')
 const router = express.Router()
 
 // Add route for GET request to retrieve all book
-// In server.js, books route is specified as '/books'
+// In server.js, users route is specified as '/users'
 // this means that '/all' translates to '/users/all'
 router.get('/all', usersRoutes.usersAll)
 
 // Add route for POST request to create new book
-// In server.js, books route is specified as '/books'
+// In server.js, users route is specified as '/users'
 // this means that '/create' translates to '/users/create'
 router.post('/create', usersRoutes.usersCreate)
 

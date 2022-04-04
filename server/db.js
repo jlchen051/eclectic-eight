@@ -12,9 +12,9 @@ const knex = require('knex')({
   useNullAsDefault: true
 })
 
-// Create a table in the database called "books"
+// Create a table in the database called "users"
 knex.schema
-  // Make sure no "books" table exists
+  // Make sure no "users" table exists
   // before trying to create new
   .hasTable('users')
     .then((exists) => {
@@ -31,7 +31,7 @@ knex.schema
         })
         .then(() => {
           // Log success message
-          console.log('Table \'Books\' created')
+          console.log('Table \'Users\' created')
         })
         .catch((error) => {
           console.error(`There was an error creating table: ${error}`)
@@ -47,7 +47,7 @@ knex.schema
     })
 
 // Just for debugging purposes:
-// Log all data in "books" table
+// Log all data in "users" table
 knex.select('*').from('users')
   .then(data => console.log('data:', data))
   .catch(err => console.log(err))

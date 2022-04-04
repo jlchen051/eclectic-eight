@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+import axios from 'axios'
 
 import './RegisterForm.css';
 import {Form, Row, Col, InputGroup, Button} from 'react-bootstrap';
@@ -43,6 +44,21 @@ function RegisterForm() {
         if(form.checkValidity() === true){
             navigate('/register-success');
         }
+        // Send POST request to 'users/create' endpoint
+        axios
+        .post('http://localhost:4001/users/create', {
+            fname: formDataObj.firstName,
+            lname: formDataObj.lastName,
+            username: formDataObj.username,
+            email: formDataObj.email,
+            organization: formDataObj.organization,
+            password: formDataObj.passwordInput,
+            // mentor: formDataObj.mentor
+        })
+        .then(res => {
+        console.log(res.data)
+        })
+        .catch(error => console.error(`There was an error creating the user: ${error}`))
     };
 
     return(

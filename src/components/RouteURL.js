@@ -10,6 +10,7 @@ import Schedule from './scheduler/Schedule';
 import SignIn from './login/Sign-in';
 import Register from './registration/Register';
 import RegisterationSuccess from './registration/RegistrationSuccess';
+import Homepage from './Homepage';
 
 let userToken = null;
 

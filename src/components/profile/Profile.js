@@ -12,7 +12,7 @@ const Homepage = () => {
     const [school, setSchool] = useState("null");
     const [savedSchool, setSavedSchool] = useState("null");
     const [editSchool, setEditSchool] = useState(false);
-    const softSkillList = ["Leadership", "Communication", "Time Management", "Interview", "Resume", "Personal Project"]
+    const softSkillList = ["Leadership", "Communication", "Time Management", "Interview", "Resume", "Personal Project", "Negotiation"]
     const [softSkills, setSoftSkills] = useState([]);
     const [displaySoftSkills, setDisplaySoftSkills] = useState(false);
     const technicalInterestList = ["MatLab", "C++", "React", "Python"]
